@@ -38,7 +38,7 @@ public class Api {
 	public void login(String username, String password) {
 		String payload = String.format("username=%s&password=%s", username, password);
 		try {
-			JSONObject tokenResponse = http.post("api-token-auth/", payload, apiToken);
+			JSONObject tokenResponse = http.post("api-token-auth/", payload, "");
 			this.apiToken = "Token " + (String) tokenResponse.get("token");
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -58,7 +58,7 @@ public class Api {
 
 		try {
 			return http.post("scrobbles/", payload, apiToken);
-		} catch (IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return null;

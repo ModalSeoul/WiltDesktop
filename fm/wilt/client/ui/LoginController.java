@@ -3,6 +3,8 @@ package fm.wilt.client.ui;
 import javafx.event.ActionEvent;
 
 import org.json.simple.JSONObject;
+import org.json.simple.parser.ParseException;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import fm.wilt.client.jwilt.Api;
@@ -16,8 +18,8 @@ public class LoginController {
 
 	Api Backend = new Api();
 
-	public void Login(ActionEvent event) {
+	public void Login(ActionEvent event) throws ParseException {
 		Backend.login("Modal", "password");
-		System.out.println(Backend.apiToken);
+		Backend.postScrobble("Test from Java!", "JAVA:D");
 	}
 }
