@@ -1,7 +1,6 @@
 package fm.wilt.client.jwilt;
 
 import java.net.*;
-import java.util.HashMap;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
