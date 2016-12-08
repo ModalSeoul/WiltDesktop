@@ -1,8 +1,10 @@
 package fm.wilt.client.ui;
 
 import fm.wilt.client.jwilt.Api;
+import fm.wilt.client.ui.JFX;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
@@ -17,6 +19,11 @@ public class LoginController {
 
 	public void Login(ActionEvent event) {
 		Backend.login(getUsername(), getPassword());
+		try {
+			JFX.switchScenes(FXMLLoader.load(getClass().getResource("Scrobble.fxml")), "Scrobble");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/**

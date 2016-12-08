@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="148.0" prefWidth="180.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField fx:id="song" layoutX="14.0" layoutY="14.0" promptText="Song" />
+      <TextField fx:id="artist" layoutX="14.0" layoutY="46.0" promptText="Artist" />
+      <TextField fx:id="album" layoutX="14.0" layoutY="78.0" promptText="Album" />
+      <Button fx:id="scrobbleBtn" layoutX="16.0" layoutY="111.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="Scrobble" />
+   </children>
+</Pane>
