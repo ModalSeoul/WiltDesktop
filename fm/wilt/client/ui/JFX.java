@@ -10,7 +10,7 @@ public class JFX extends Application {
 
 	public void start(Stage primaryStage) throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
-		Scene scene = new Scene(root, 1280, 720);
+		Scene scene = new Scene(root);
 		
 		primaryStage.setScene(scene);		
 		primaryStage.show();
