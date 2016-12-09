@@ -23,20 +23,25 @@ public class Api {
 	}
 	
 	/**
-	 * 
+	 * Returns the JSONOBject of a given member
 	 * @param nick
-	 * @return
+	 * @return Member JSONObject
 	 */
 	public JSONObject getMember(String nick) {
 		return http.apiGet(String.format("members/%s/by_nick/", nick));
 	}
 	
+	/**
+	 * Returns a JSONObject containing the leaderboard
+	 * @return Leaderboard JSONObject
+	 */
 	public JSONObject getLeaderboard() {
 		return http.apiGet("members/most_scrobbles/?leaderboard=true");
 	}
 	
 	/**
-	 * 
+	 * Logs a user in and sets apiToken 
+	 * to authorization header
 	 * @param username
 	 * @param password
 	 */
@@ -51,7 +56,8 @@ public class Api {
 	}
 	
 	/**
-	 * 
+	 * Posts a scrobble to the backend with 
+	 * the current token held stored in apiToken
 	 * @param artist
 	 * @param song
 	 * @param album
