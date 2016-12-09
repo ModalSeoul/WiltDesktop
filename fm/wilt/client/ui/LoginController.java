@@ -15,10 +15,9 @@ public class LoginController {
 	@FXML private TextField username;
 	@FXML private TextField password;
 
-	Api Backend = new Api();
 
 	public void Login(ActionEvent event) {
-		Backend.login(getUsername(), getPassword());
+		Api.getInstance().login(getUsername(), getPassword());
 		try {
 			JFX.switchScenes(FXMLLoader.load(getClass().getResource("Scrobble.fxml")), "Scrobble");
 		} catch (Exception e) {

@@ -10,11 +10,16 @@ import org.json.simple.*;
 public class Api {
 	
 	public String apiToken;
+	private static Api instance = null;
 	protected String format;
-	protected Http http;
+	protected Http http = new Http("https://wilt.fm/api/");
 	
-	public Api() {
-		this.http = new Http("https://wilt.fm/api/");
+	protected Api() {}
+	
+	public static Api getInstance() {
+		if (instance == null)
+			instance = new Api();
+		return instance;
 	}
 	
 	/**
@@ -52,18 +57,25 @@ public class Api {
 	 * @param album
 	 */
 	public JSONObject postScrobble(String artist, String song, String... album) {
-		String payload = String.format("song=%s&artist=%s", artist, song);
-		if (album != null)
-			payload.concat("&album=" + album);
-
-		try {
-			return http.post("scrobbles/", payload, apiToken);
-		} catch (Exception e) {
-			e.printStackTrace();
+		if (artist.length() > 0 && song.length() > 0) {			
+			String payload = String.format("song=%s&artist=%s", artist, song);
+			if (album != null)
+				payload.concat("&album=" + album);
+			
+			try {
+				return http.post("scrobbles/", payload, apiToken);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		return null;
 	}
 	
+	/**
+	 * Returns true or false depending on 
+	 * whether or not the user has been authenticated
+	 * @return boolean
+	 */
 	public boolean isAuthed() {
 		if (apiToken.length() > 5)
 			return true;
